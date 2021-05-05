@@ -5,12 +5,14 @@ public class EmployeeWageBuilder {
 	public static final int PART_TIME = 2;
 	public static final int WAGE_PER_HOUR = 20;
 	public static final int WORKING_DAYS_PER_MONTH = 20;
+	public static final int EMP_HOURS_IN_MONTH = 100;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to Employee Wage Computation Program");
-		int empWorkingHours = 0, total_Salary = 0;
-		for (int day = 1; day <= WORKING_DAYS_PER_MONTH; day++) {
+		int empWorkingHours = 0, totalEmpWorkingHours = 0, totalWorkingDays = 0;
+		while (totalEmpWorkingHours <= EMP_HOURS_IN_MONTH && totalWorkingDays < WORKING_DAYS_PER_MONTH) {
+			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random() * 100) % 3;
 			switch (empCheck) {
 			case FULL_TIME:
@@ -23,11 +25,11 @@ public class EmployeeWageBuilder {
 				empWorkingHours = 0;
 				break;
 			}
-			int dailyEmployeeWage = WAGE_PER_HOUR * empWorkingHours;
-			System.out.println("Day " + day + " dailyEmployeeWage is " + dailyEmployeeWage);
-			total_Salary = total_Salary + dailyEmployeeWage;
+			totalEmpWorkingHours += empWorkingHours;
+			System.out.println("Day# " + totalWorkingDays + "  EmpWorkingHours: " + empWorkingHours);
 		}
-		System.out.println("Total Salary for a Month:" + total_Salary);
+		int totalEmployeeWage = totalEmpWorkingHours * WAGE_PER_HOUR;
+		System.out.println("*****Total Salary for a Month:" + totalEmployeeWage);
 
 	}
 
