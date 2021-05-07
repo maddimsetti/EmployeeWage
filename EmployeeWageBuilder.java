@@ -31,7 +31,6 @@ public class EmployeeWageBuilder {
 		int empWorkingHours = 0, totalEmpWorkingHours = 0, totalWorkingDays = 0;
 		while (totalEmpWorkingHours <= EMP_HOURS_IN_MONTH && totalWorkingDays < WORKING_DAYS_PER_MONTH) {
 			totalWorkingDays++;
-
 			switch (empCheck()) {
 			case FULL_TIME:
 				empWorkingHours = 8;
@@ -60,5 +59,9 @@ public class EmployeeWageBuilder {
 		System.out.println("Welcome to Employee Wage Computation Program");
 		EmployeeWageBuilder dmart = new EmployeeWageBuilder("Dmart", 20, 20, 100);
 		System.out.println("Total Monthly Salary for " + dmart.company + " is " + dmart.totalEmployeeWage());
+		EmployeeWageBuilder reliance = new EmployeeWageBuilder("Reliance", 15, 10, 50);
+		System.out.println("Total Monthly Salary for " + reliance.company + " is " + reliance.totalEmployeeWage());
+		EmployeeWageBuilder bigbazar = new EmployeeWageBuilder("BigBazar", 30, 25, 100);
+		System.out.println("Total Monthly Salary for " + bigbazar.company + " is " + bigbazar.totalEmployeeWage());
 	}
 }
