@@ -11,6 +11,7 @@ public class EmployeeWageBuilder {
 	public final int EMP_HOURS_IN_MONTH;
 	// variable
 	public final String company;
+	public int totalEmployeeWage;
 
 	// Constructor Declaration of class
 	public EmployeeWageBuilder(String company, int WAGE_PER_HOUR, int WORKING_DAYS_PER_MONTH, int EMP_HOURS_IN_MONTH) {
@@ -27,7 +28,7 @@ public class EmployeeWageBuilder {
 	}
 
 	// method2
-	public int totalEmpWorkingHours() {
+	public int totalEmployeeWage() {
 		int empWorkingHours = 0, totalEmpWorkingHours = 0, totalWorkingDays = 0;
 		while (totalEmpWorkingHours <= EMP_HOURS_IN_MONTH && totalWorkingDays < WORKING_DAYS_PER_MONTH) {
 			totalWorkingDays++;
@@ -45,12 +46,12 @@ public class EmployeeWageBuilder {
 			totalEmpWorkingHours += empWorkingHours;
 			System.out.println("Day# " + totalWorkingDays + "  EmpWorkingHours:" + empWorkingHours);
 		}
-		return totalEmpWorkingHours;
+		return totalEmployeeWage = totalEmpWorkingHours * WAGE_PER_HOUR;
 	}
 
-	// method3
-	public int totalEmployeeWage() {
-		return totalEmpWorkingHours() * WAGE_PER_HOUR;
+	// Override
+	public String toString() {
+		return "Total Wage for Company " + company + " is " + totalEmployeeWage;
 	}
 
 	// Compute
@@ -58,10 +59,13 @@ public class EmployeeWageBuilder {
 		// TODO Auto-generated method stub
 		System.out.println("Welcome to Employee Wage Computation Program");
 		EmployeeWageBuilder dmart = new EmployeeWageBuilder("Dmart", 20, 20, 100);
-		System.out.println("Total Monthly Salary for " + dmart.company + " is " + dmart.totalEmployeeWage());
+		dmart.totalEmployeeWage();
+		System.out.println(dmart);
 		EmployeeWageBuilder reliance = new EmployeeWageBuilder("Reliance", 15, 10, 50);
-		System.out.println("Total Monthly Salary for " + reliance.company + " is " + reliance.totalEmployeeWage());
+		reliance.totalEmployeeWage();
+		System.out.println(reliance);
 		EmployeeWageBuilder bigbazar = new EmployeeWageBuilder("BigBazar", 30, 25, 100);
-		System.out.println("Total Monthly Salary for " + bigbazar.company + " is " + bigbazar.totalEmployeeWage());
+		bigbazar.totalEmployeeWage();
+		System.out.println(bigbazar);
 	}
 }
